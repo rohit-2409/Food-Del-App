@@ -1,0 +1,14 @@
+### Check backend status
+GET http://localhost:4000
+
+### Add food item (use form-data upload)
+POST http://localhost:4000/api/food/addfood
+Content-Type: multipart/form-data
+
+name=Pizza
+price=250
+description=Delicious cheese pizza
+category=Fast Food
+rating=4.5
+reviews=120
+image=@./uploads/pizza.jpg

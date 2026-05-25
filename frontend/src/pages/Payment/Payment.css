@@ -1,0 +1,1094 @@
+/* ==========================================================================
+   CHECKOUT PAYMENT GATEWAY STYLE Overhaul - Tomato Food Delivery Checkout
+   ========================================================================== */
+
+/* 🚀 ROOT ACCENTS */
+.payment-page {
+  --checkout-accent: #ff4321;
+  --checkout-accent-rgb: 255, 67, 33;
+  --checkout-bg: #fcfcfd;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-light: #e2e8f0;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  color: var(--text-primary);
+  background-color: var(--checkout-bg);
+  min-height: 80vh;
+}
+
+/* 🚀 PREMIUM GLOWING CARD CARDS */
+.card-glow {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-smooth);
+}
+
+.card-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--checkout-accent-rgb), 0.15);
+}
+
+/* 🚀 HEADER STYLES */
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  border-bottom: 2px dashed var(--border-light);
+  padding-bottom: 30px;
+}
+
+.payment-header .eyebrow {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--checkout-accent);
+}
+
+.payment-header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-top: 5px;
+  letter-spacing: -0.5px;
+}
+
+.payment-header p {
+  color: var(--text-secondary);
+  margin-top: 5px;
+  font-size: 0.95rem;
+}
+
+.amount-badge {
+  background: rgba(var(--checkout-accent-rgb), 0.06);
+  border: 1.5px solid rgba(var(--checkout-accent-rgb), 0.12);
+  padding: 12px 24px;
+  border-radius: 16px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.amount-badge span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.amount-badge h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--checkout-accent);
+  margin-top: 2px;
+}
+
+/* 🚀 CONTAINER LAYOUT */
+.payment-container {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+}
+
+/* 🚀 LEFT PORTAL: TABS INTEGRATION */
+.payment-left {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.payment-tabs {
+  background: #f8fafc;
+  border-right: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 4px;
+  background: var(--checkout-accent);
+  border-radius: 4px 0 0 4px;
+  transform: scaleY(0);
+  transition: var(--transition-smooth);
+}
+
+.tab-btn.active {
+  background: var(--card-bg);
+}
+
+.tab-btn.active::after {
+  transform: scaleY(1);
+}
+
+.tab-icon {
+  font-size: 1.5rem;
+  background: #f1f5f9;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: var(--transition-smooth);
+}
+
+.tab-btn.active .tab-icon {
+  background: rgba(var(--checkout-accent-rgb), 0.08);
+  color: var(--checkout-accent);
+  transform: scale(1.05);
+}
+
+.tab-text h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.tab-text p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* 🚀 DISPLAY AREA */
+.payment-display {
+  padding: 40px;
+}
+
+.payment-display h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+}
+
+.payment-display p.sub {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+/* 🚀 UPI SECTION STYLE */
+.upi-options-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.upi-opt-card {
+  border: 1.5px solid var(--border-light);
+  border-radius: 14px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.upi-opt-card:hover {
+  border-color: rgba(var(--checkout-accent-rgb), 0.25);
+  transform: translateY(-2px);
+}
+
+.upi-opt-card.active {
+  border-color: var(--checkout-accent);
+  background: rgba(var(--checkout-accent-rgb), 0.03);
+}
+
+.upi-logo-container {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.gpay-color { background: #f8fafc; color: #4285f4; border: 1px solid #e2e8f0; }
+.phonepe-color { background: #5f259f; color: white; }
+.paytm-color { background: #00b9f5; color: white; }
+.qr-color { background: #10b981; color: white; }
+
+.upi-opt-card span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.upi-custom-card {
+  border: 1.5px dashed var(--border-light);
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: var(--transition-smooth);
+}
+
+.upi-custom-card:hover, .upi-custom-card.active {
+  border-color: var(--checkout-accent);
+  color: var(--checkout-accent);
+  background: rgba(var(--checkout-accent-rgb), 0.02);
+}
+
+.upi-id-form {
+  margin-top: 25px;
+}
+
+.upi-id-form label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.upi-input-field input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-light);
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.upi-input-field input:focus {
+  border-color: var(--checkout-accent);
+  box-shadow: 0 0 0 4px rgba(var(--checkout-accent-rgb), 0.1);
+}
+
+.upi-id-form p.hint {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+.upi-instant-panel {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 25px;
+  border-left: 4px solid var(--checkout-accent);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.upi-instant-panel strong {
+  color: var(--text-primary);
+}
+
+/* 🚀 QR CODE COMPONENT STYLES */
+.qr-box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #f8fafc;
+  border: 1.5px solid var(--border-light);
+}
+
+.qr-frame {
+  height: 160px;
+  width: 160px;
+  border: 4px solid var(--text-primary);
+  border-radius: 16px;
+  background: white;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--checkout-accent), transparent);
+  animation: scan 2s linear infinite;
+  box-shadow: 0 0 8px var(--checkout-accent);
+}
+
+.qr-svg {
+  width: 100%;
+  height: 100%;
+  color: var(--text-primary);
+}
+
+.qr-box-container p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 250px;
+  line-height: 1.4;
+}
+
+@keyframes scan {
+  0% { top: 0%; }
+  50% { top: 100%; }
+  100% { top: 0%; }
+}
+
+/* 🚀 CREDIT CARD VISUAL FLIPS */
+.card-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.flip-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flip-card-front {
+  background: linear-gradient(135deg, #1e1b4b, #312e81, #111827);
+  color: white;
+}
+
+.card-chip-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-chip {
+  width: 45px;
+  height: 32px;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  border-radius: 6px;
+  position: relative;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.card-chip::after {
+  content: '';
+  position: absolute;
+  left: 30%;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  border-left: 1px solid rgba(0,0,0,0.15);
+  border-right: 1px solid rgba(0,0,0,0.15);
+}
+
+.card-brand {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.card-number-display {
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  font-family: 'Courier New', monospace;
+  margin: 15px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+}
+
+.meta-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-block span {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.meta-block strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 2px;
+  letter-spacing: 1px;
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #1e1b4b, #111827);
+  transform: rotateY(180deg);
+  color: white;
+  padding: 20px 0;
+}
+
+.magnetic-strip {
+  width: 100%;
+  height: 40px;
+  background: #0f172a;
+}
+
+.signature-area {
+  margin: 15px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: repeating-linear-gradient(45deg, #f1f5f9, #f1f5f9 10px, #e2e8f0 10px, #e2e8f0 20px);
+  height: 38px;
+  border-radius: 4px;
+  padding: 0 15px;
+}
+
+.signature-area span {
+  font-size: 0.55rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.card-cvv-display {
+  background: white;
+  color: black;
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.flip-card-back p.disclaimer {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-align: center;
+  margin: 0 24px;
+}
+
+/* 🚀 CARD FORM INPUTS */
+.card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.card-form input {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--border-light);
+  outline: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.card-form input:focus {
+  border-color: var(--checkout-accent);
+  box-shadow: 0 0 0 3px rgba(var(--checkout-accent-rgb), 0.08);
+}
+
+.double-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* 🚀 NET BANKING COMPONENT */
+.banking-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.banks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.bank-card {
+  border: 1.5px solid var(--border-light);
+  border-radius: 12px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.bank-card:hover {
+  border-color: rgba(var(--checkout-accent-rgb), 0.2);
+  transform: translateY(-2px);
+}
+
+.bank-card.active {
+  border-color: var(--checkout-accent);
+  background: rgba(var(--checkout-accent-rgb), 0.03);
+}
+
+.bank-avatar {
+  height: 45px;
+  width: 45px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: white;
+}
+
+.sbi-theme { background: #00b9f5; }
+.hdfc-theme { background: #003366; }
+.icici-theme { background: #ff6600; }
+.axis-theme { background: #971c4c; }
+
+.bank-card span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.bank-notice {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  border-left: 3px solid var(--checkout-accent);
+}
+
+/* 🚀 RIGHT PANEL: PAYMENT SUMMARY */
+.payment-summary-card {
+  padding: 30px;
+  position: sticky;
+  top: 100px;
+}
+
+.payment-summary-card h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.payment-summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 550;
+}
+
+.summary-row.total-row {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  margin-top: 5px;
+}
+
+.accent-text {
+  color: var(--checkout-accent) !important;
+}
+
+.pay-now-btn {
+  background: var(--checkout-accent);
+  color: white;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 8px 16px rgba(var(--checkout-accent-rgb), 0.2);
+  transition: var(--transition-smooth);
+}
+
+.pay-now-btn:hover {
+  background: #e03212;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(var(--checkout-accent-rgb), 0.3);
+}
+
+.icon-lock {
+  height: 20px;
+  width: 20px;
+}
+
+.security-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  border-top: 1.5px solid var(--border-light);
+  padding-top: 25px;
+}
+
+.badge-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.badge-icon {
+  font-size: 1.45rem;
+}
+
+.badge-item h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.badge-item p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+/* 🚀 PAYMENT LOADER SCReENS */
+.processing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.processing-receipt {
+  padding: 40px;
+  width: 420px;
+  text-align: center;
+}
+
+.receipt-header h2 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.receipt-header p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+.receipt-spinner {
+  height: 50px;
+  width: 50px;
+  border: 4px solid rgba(var(--checkout-accent-rgb), 0.1);
+  border-top-color: var(--checkout-accent);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.receipt-body {
+  margin: 30px 0;
+  border-top: 1px dashed var(--border-light);
+  border-bottom: 1px dashed var(--border-light);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.receipt-row span {
+  color: var(--text-secondary);
+  font-weight: 550;
+}
+
+.receipt-row strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.shield-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.icon-shield {
+  height: 16px;
+  width: 16px;
+}
+
+/* 🚀 PAYMENT SUCCESS OVERLAY COMPONENT */
+.success-receipt {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 40px;
+  width: 440px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.success-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.15);
+}
+
+.checkmark {
+  width: 52px;
+  height: 52px;
+  stroke: #10b981;
+  stroke-width: 4;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 4;
+  stroke-miterlimit: 10;
+  stroke: #10b981;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes stroke {
+  100% { stroke-dashoffset: 0; }
+}
+
+.success-receipt h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #10b981;
+}
+
+.success-receipt p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.success-details {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.success-details p {
+  font-size: 0.8rem;
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.success-details strong {
+  color: var(--text-primary);
+}
+
+.loading-redirect-bar {
+  width: 100%;
+  height: 4px;
+  background: #f1f5f9;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #10b981;
+}
+
+.redirect-text {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  display: block;
+}
+
+/* 🚀 PURE CSS falling CONFETTI STYLES */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: #ffd300;
+  top: -20px;
+  opacity: 0.85;
+}
+
+/* Generate highly dynamic falling and drifting keyframes */
+.confetti-piece.p-0 { left: 10%; background: #ff4321; animation: fall 3s infinite 0.1s; }
+.confetti-piece.p-1 { left: 18%; background: #10b981; animation: fall 2.7s infinite 0.5s; }
+.confetti-piece.p-2 { left: 25%; background: #00b9f5; animation: fall 3.2s infinite 0.3s; }
+.confetti-piece.p-3 { left: 33%; background: #ffd300; animation: fall 2.9s infinite 0.8s; }
+.confetti-piece.p-4 { left: 41%; background: #ff4321; animation: fall 3.4s infinite 0.2s; }
+.confetti-piece.p-5 { left: 50%; background: #10b981; animation: fall 2.8s infinite 1.1s; }
+.confetti-piece.p-6 { left: 58%; background: #00b9f5; animation: fall 3.1s infinite 0.4s; }
+.confetti-piece.p-7 { left: 66%; background: #ffd300; animation: fall 2.6s infinite 0.7s; }
+.confetti-piece.p-8 { left: 74%; background: #ff4321; animation: fall 3.3s infinite 0.9s; }
+.confetti-piece.p-9 { left: 82%; background: #10b981; animation: fall 2.9s infinite 0.2s; }
+.confetti-piece.p-10 { left: 90%; background: #00b9f5; animation: fall 3.2s infinite 1.3s; }
+.confetti-piece.p-11 { left: 5%; background: #ffd300; animation: fall 2.7s infinite 0.6s; }
+.confetti-piece.p-12 { left: 95%; background: #ff4321; animation: fall 3.5s infinite 0.5s; }
+.confetti-piece.p-13 { left: 15%; background: #10b981; animation: fall 2.9s infinite 1.2s; }
+.confetti-piece.p-14 { left: 30%; background: #00b9f5; animation: fall 3.1s infinite 0.1s; }
+.confetti-piece.p-15 { left: 45%; background: #ffd300; animation: fall 2.8s infinite 0.7s; }
+.confetti-piece.p-16 { left: 60%; background: #ff4321; animation: fall 3.3s infinite 0.3s; }
+.confetti-piece.p-17 { left: 70%; background: #10b981; animation: fall 2.7s infinite 1.0s; }
+.confetti-piece.p-18 { left: 80%; background: #00b9f5; animation: fall 3.2s infinite 0.2s; }
+.confetti-piece.p-19 { left: 22%; background: #ffd300; animation: fall 2.9s infinite 0.6s; }
+
+@keyframes fall {
+  0% {
+    top: -20px;
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    top: 105%;
+    transform: translateX(50px) rotate(360deg);
+  }
+}
+
+/* 🚀 KEYFRAME ANIMATION CLASSIFIERS */
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-progress {
+  animation: progressFill 2.5s linear forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* 🚀 RESPONSIVE VIEWPORTS MEDIA CONTROLS */
+@media (max-width: 968px) {
+  .payment-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .payment-right {
+    order: -1;
+  }
+  .payment-summary-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .payment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .amount-badge {
+    text-align: left;
+    width: 100%;
+  }
+  .payment-left {
+    grid-template-columns: 1fr;
+  }
+  .payment-tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1.5px solid var(--border-light);
+    padding: 10px 0;
+  }
+  .tab-btn {
+    padding: 10px 15px;
+    gap: 8px;
+    width: auto;
+    flex-shrink: 0;
+  }
+  .tab-btn::after {
+    right: 15%;
+    top: auto;
+    bottom: 0;
+    height: 3px;
+    width: 70%;
+    transform: scaleX(0);
+  }
+  .tab-btn.active::after {
+    transform: scaleX(1);
+  }
+  .tab-icon {
+    height: 35px;
+    width: 35px;
+    font-size: 1.15rem;
+  }
+  .banks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .upi-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .flip-card {
+    height: 180px;
+  }
+  .card-number-display {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.sidebar {
+  width: 250px; /* Standard professional sidebar width */
+  min-height: calc(100vh - 65px); /* Fills screen height perfectly below navbar */
+  background-color: var(--bg-color);
+  border-right: 1px solid var(--border-color);
+  padding-top: 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar Options Stack Container */
+.sidebar-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Clean spacing between navigation tabs */
+  padding-left: 12px; /* Keeps options slightly offset for side borders */
+}
+
+/* Base Link Style */
+.sidebar-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  text-decoration: none; /* Removes automatic link underlines */
+  color: var(--text-sub); /* Subtle gray text color for unselected tabs */
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 12px 0 0 12px; /* Rounded corners only on the inside */
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+/* Base Text Reset */
+.sidebar-option p {
+  margin: 0;
+}
+
+/* Icons styling */
+.sidebar-option img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  opacity: 0.6; /* Softens unselected icons */
+  transition: var(--transition);
+}
+
+/* Hover State (When hovering unselected tabs) */
+.sidebar-option:hover {
+  color: var(--text-main); /* Darker text */
+  background-color: var(--bg-soft); /* Soft light gray background accent */
+}
+
+.sidebar-option:hover img {
+  opacity: 0.9;
+}
+
+/* 🎯 Automatic Active Tab State (React Router NavLink Magic) */
+.sidebar-option.active {
+  color: var(--indigo); /* Premium Indigo text */
+  background-color: var(--indigo-light); /* Very soft matching purple/indigo background tint */
+  font-weight: 600;
+  border-right: 3px solid var(--indigo); /* Sharp indicator indicator line on the right border edge */
+}
+
+.sidebar-option.active img {
+  opacity: 1;
+}
+
+/* Responsive collapse for tablet/mobile viewports */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px; /* Slims down to just an icon bar on mobile */
+    min-height: auto;
+  }
+  
+  .sidebar-options {
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .sidebar-option {
+    border-radius: 8px;
+    padding: 12px;
+    justify-content: center;
+  }
+
+  .sidebar-option p {
+    display: none; /* Conceals textual content on tiny displays */
+  }
+  
+  .sidebar-option.active {
+    border-right: none;
+    background-color: #f5f3ff;
+  }
+}

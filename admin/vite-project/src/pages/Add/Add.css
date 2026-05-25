@@ -1,0 +1,604 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   PAGE WRAPPER
+========================= */
+.add {
+  width: 100%;
+  min-height: 100vh;
+  padding: 36px 32px;
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(ellipse at 0% 0%,   rgba(255, 107, 87, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(255, 142, 83, 0.10) 0%, transparent 50%),
+    #f0f4f8;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.add-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADER BANNER
+========================= */
+.add-header {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: 44px 48px;
+  margin-bottom: 32px;
+  color: #fff;
+  background: linear-gradient(130deg, #ff6b57 0%, #ff8e53 55%, #ffb347 100%);
+  box-shadow:
+    0 20px 60px rgba(255, 107, 87, 0.28),
+    0 4px 16px  rgba(255, 107, 87, 0.18);
+}
+
+/* Decorative blobs */
+.add-header::before,
+.add-header::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.18;
+  background: #fff;
+}
+.add-header::before {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -60px;
+}
+.add-header::after {
+  width: 180px;
+  height: 180px;
+  bottom: -70px;
+  right: 200px;
+}
+
+.mini-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.add-header h1 {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+
+.add-header p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  opacity: 0.88;
+  max-width: 580px;
+}
+
+/* =========================
+   FORM GRID
+========================= */
+.add-form {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* =========================
+   PANEL CARDS
+========================= */
+.left-panel,
+.right-panel {
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 30px;
+  box-shadow:
+    0 2px 6px  rgba(0, 0, 0, 0.04),
+    0 10px 32px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.left-panel:hover,
+.right-panel:hover {
+  box-shadow:
+    0 2px 6px  rgba(0, 0, 0, 0.04),
+    0 16px 44px rgba(0, 0, 0, 0.10);
+}
+
+/* =========================
+   CARD TITLE
+========================= */
+.card-title {
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1.5px solid #f1f5f9;
+}
+
+.card-title h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.card-title p {
+  color: #64748b;
+  font-size: 13.5px;
+  line-height: 1.65;
+}
+
+/* =========================
+   UPLOAD AREA
+========================= */
+.upload-area {
+  border: 2px dashed #cbd5e1;
+  border-radius: 22px;
+  min-height: 400px;
+  background: linear-gradient(145deg, #fafbff, #f8fafc);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  cursor: pointer;
+  padding: 28px 20px;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 87, 0.05), rgba(255, 142, 83, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: inherit;
+}
+
+.upload-area:hover {
+  border-color: #ff6b57;
+  transform: translateY(-2px);
+}
+
+.upload-area:hover::before {
+  opacity: 1;
+}
+
+.preview-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upload-area:hover .preview-image {
+  transform: scale(1.04);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.upload-text {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.upload-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+.upload-text p {
+  color: #94a3b8;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+/* Upload icon pill */
+.upload-icon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  background: linear-gradient(135deg, #ff6b57, #ff8e53);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(255, 107, 87, 0.28);
+  margin-top: 4px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.upload-area:hover .upload-icon-pill {
+  box-shadow: 0 10px 24px rgba(255, 107, 87, 0.38);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   FORM GROUPS
+========================= */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #374151;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Required star */
+.form-group label::after {
+  content: '*';
+  color: #ff6b57;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* =========================
+   INPUTS, TEXTAREA, SELECT
+========================= */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  border: 1.8px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 18px;
+  outline: none;
+  font-size: 14.5px;
+  font-family: 'Inter', sans-serif;
+  background: #fafcff;
+  color: #1e293b;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: none;
+  line-height: 1.7;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #ff6b57;
+  background: #fff;
+  box-shadow:
+    0 0 0 4px rgba(255, 107, 87, 0.10),
+    0 2px 8px rgba(255, 107, 87, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #b0bcc8;
+  font-weight: 400;
+}
+
+/* Price input — ₹ prefix */
+.price-input-wrap {
+  position: relative;
+}
+
+.price-prefix {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  font-weight: 700;
+  color: #059669;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.price-input-wrap input {
+  padding-left: 36px;
+}
+
+/* =========================
+   PRICE HINT
+========================= */
+.price-hint {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: -4px;
+  padding-left: 2px;
+}
+
+/* =========================
+   DOUBLE INPUT ROW
+========================= */
+.double-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+.submit-btn {
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, #ff6b57 0%, #ff8e53 60%, #ffb347 100%);
+  color: #fff;
+  padding: 17px 24px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow:
+    0 8px 24px rgba(255, 107, 87, 0.28),
+    0 2px 6px  rgba(255, 107, 87, 0.18);
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 36px rgba(255, 107, 87, 0.36),
+    0 4px 10px  rgba(255, 107, 87, 0.22);
+}
+
+.submit-btn:active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: 0 6px 16px rgba(255, 107, 87, 0.22);
+}
+
+/* =========================
+   TIPS SECTION (optional info)
+========================= */
+.tips-box {
+  margin-top: 24px;
+  background: linear-gradient(135deg, rgba(255, 107, 87, 0.06), rgba(255, 142, 83, 0.04));
+  border: 1px solid rgba(255, 107, 87, 0.18);
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.tips-box h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ff6b57;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.tips-box ul {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tips-box li {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+  .add-form {
+    grid-template-columns: 1fr;
+  }
+
+  .left-panel {
+    order: -1;
+  }
+
+  .upload-area {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .add {
+    padding: 20px 18px;
+  }
+
+  .add-header {
+    padding: 32px 28px;
+    border-radius: 22px;
+  }
+
+  .add-header h1 {
+    font-size: 30px;
+  }
+
+  .double-input {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .upload-area {
+    min-height: 280px;
+  }
+
+  .preview-image {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add {
+    padding: 14px 12px;
+  }
+
+  .add-header {
+    padding: 24px 22px;
+    border-radius: 18px;
+  }
+
+  .add-header h1 {
+    font-size: 24px;
+  }
+
+  .left-panel,
+  .right-panel {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .card-title h2 {
+    font-size: 18px;
+  }
+
+  .upload-area {
+    min-height: 240px;
+    padding: 20px 14px;
+  }
+
+  .preview-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 13px 15px;
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    padding: 15px;
+    font-size: 15px;
+  }
+}
+
+/* =========================
+   STATUS BANNER
+========================= */
+.status-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border-radius: 18px;
+  margin-bottom: 24px;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.status-banner.online {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.24);
+  color: #065f46;
+}
+
+.status-banner.offline {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.24);
+  color: #92400e;
+  animation: pulse-border 2s infinite alternate;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.status-banner.online .status-dot {
+  background-color: #10b981;
+}
+
+.status-banner.online .status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.4);
+  animation: status-ping 1.6s infinite ease-in-out;
+}
+
+.status-banner.offline .status-dot {
+  background-color: #f59e0b;
+}
+
+.status-banner.offline .status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.4);
+  animation: status-ping 1.6s infinite ease-in-out;
+}
+
+@keyframes status-ping {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes pulse-border {
+  0% { border-color: rgba(245, 158, 11, 0.2); }
+  100% { border-color: rgba(245, 158, 11, 0.5); }
+}

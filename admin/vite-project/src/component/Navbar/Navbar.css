@@ -1,0 +1,65 @@
+/* Google Font Import for a clean, premium interface */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.navbar {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 4%; /* Scales nicely across desktop screens */
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb; /* Subtle boundary line instead of harsh shadows */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  
+  /* Keeps the navbar anchored to the top of the viewport when scrolling */
+  position: sticky;
+  top: 0;
+  z-index: 100; 
+}
+
+/* Company/Brand Logo */
+.navbar .logo {
+  height: 40px; /* Uniform height constraint */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.navbar .logo:hover {
+  opacity: 0.9;
+}
+
+/* User Profile Image Wrapper */
+.navbar .profile {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%; /* Makes the avatar perfectly round */
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #e5e7eb;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Active Profile Interaction States */
+.navbar .profile:hover {
+  border-color: #4f46e5; /* Modern premium Indigo accent color */
+  transform: scale(1.05); /* Soft bounce hover effect */
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+/* Responsive Scaling for Tablets and Mobile Devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+  
+  .navbar .logo {
+    height: 32px;
+  }
+  
+  .navbar .profile {
+    width: 36px;
+    height: 36px;
+  }
+}

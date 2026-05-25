@@ -1,0 +1,59 @@
+/* Admin app layout and responsive styling */
+.admin-app{
+	display: flex;
+	min-height: 100vh;
+	width: 100%;
+	background: var(--body-color);
+	color: var(--light-text);
+}
+
+.admin-main{
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.admin-content{
+	padding: clamp(16px, 2.5vw, 32px);
+	flex: 1 1 auto;
+	overflow-y: auto;
+}
+
+/* Make sure the top navbar stays visible */
+.admin-main .navbar{
+	background: linear-gradient(90deg,var(--nav-color-one),var(--nav-color-two));
+	border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Cards / panels baseline */
+.card{
+	background: var(--body-color);
+	border-radius: 8px;
+	padding: 16px;
+	box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+	color: var(--light-text);
+}
+
+/* Responsive rules: collapse sidebar on small screens */
+@media (max-width: 900px){
+	.admin-app{
+		flex-direction: column;
+	}
+	.sidebar{
+		width: 100%;
+		min-height: auto;
+		border-right: 0;
+		border-bottom: 1px solid #e6e6e6;
+	}
+	.admin-content{
+		padding: 16px;
+	}
+}
+
+/* Small tweaks for very small screens */
+@media (max-width: 480px){
+	.navbar .logo{ width: 60px }
+	.navbar .profile{ width: 36px }
+	.add-btn{ width: 100%; }
+}

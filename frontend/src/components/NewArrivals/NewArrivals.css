@@ -1,0 +1,123 @@
+.new-arrivals {
+    width: 100%;
+    padding: 40px 0 20px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.new-arrivals-header {
+    margin-bottom: 24px;
+}
+
+.new-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.new-arrivals-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.new-arrivals-header p {
+    font-size: 16px;
+    color: var(--text-sub);
+    line-height: 1.5;
+}
+
+.new-arrivals-list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 16px 4px 28px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.new-arrivals-list::-webkit-scrollbar {
+    display: none;
+}
+
+.new-arrival-card-wrapper {
+    position: relative;
+    min-width: 280px;
+    max-width: 320px;
+    flex: 1 0 auto;
+}
+
+/* Pulsing absolute NEW Badge */
+.badge-new {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    background: var(--primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(255, 76, 36, 0.4);
+    letter-spacing: 0.5px;
+    animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 76, 36, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 6px rgba(255, 76, 36, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 76, 36, 0);
+    }
+}
+
+.new-arrivals hr {
+    margin-top: 36px;
+    border: none;
+    height: 1px;
+    background: var(--border-color);
+}
+
+@media (max-width: 992px) {
+    .new-arrivals-header h2 {
+        font-size: 28px;
+    }
+    .new-arrivals-header p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .new-arrivals {
+        padding: 30px 0 10px;
+    }
+    .new-arrivals-header h2 {
+        font-size: 24px;
+    }
+    .new-arrivals-header p {
+        font-size: 14px;
+    }
+    .new-arrivals-list {
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+    .new-arrival-card-wrapper {
+        min-width: 240px;
+    }
+}

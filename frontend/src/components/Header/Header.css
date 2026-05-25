@@ -1,0 +1,122 @@
+.header {
+    height: 38vw;
+    min-height: 320px;
+    margin: 24px auto 40px;
+    background: url('/header_img.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+/* Linear Gradient Overlay for professional readability and contrast */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(75deg, rgba(17, 24, 39, 0.85) 0%, rgba(17, 24, 39, 0.4) 60%, rgba(17, 24, 39, 0.15) 100%);
+    z-index: 1;
+}
+
+.header-contents {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.6vw;
+    max-width: 60%;
+    bottom: 12%;
+    left: 6vw;
+    z-index: 2;
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-contents h2 {
+    font-weight: 700;
+    color: white;
+    font-size: max(4.2vw, 24px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+}
+
+.header-contents p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: max(1.1vw, 12px);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.header-contents button {
+    border: none;
+    outline: none;
+    color: var(--text-main);
+    font-weight: 600;
+    padding: 14px 38px;
+    background: white;
+    font-size: max(1vw, 14px);
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.header-contents button:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 76, 36, 0.2);
+}
+
+.header-contents button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 1050px) {
+    .header {
+        height: 42vw;
+        border-radius: 20px;
+    }
+    
+    .header-contents {
+        max-width: 70%;
+        gap: 2vw;
+    }
+}
+
+@media (max-width: 750px) {
+    .header {
+        height: auto;
+        min-height: 280px;
+        padding: 40px 24px;
+        display: flex;
+        align-items: center;
+        background-size: cover;
+    }
+
+    .header::before {
+        background: rgba(17, 24, 39, 0.85); /* Darker backdrop overlay on smaller screens */
+    }
+
+    .header-contents {
+        position: relative;
+        max-width: 100%;
+        left: 0;
+        bottom: 0;
+        gap: 16px;
+    }
+
+    .header-contents p {
+        display: block;
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 100%;
+    }
+
+    .header-contents button {
+        padding: 12px 30px;
+    }
+}

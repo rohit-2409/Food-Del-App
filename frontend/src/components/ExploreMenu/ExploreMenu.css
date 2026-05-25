@@ -1,0 +1,167 @@
+/* =========================
+   EXPLORE MENU SECTION
+========================= */
+
+.explore-menu {
+    width: 100%;
+    padding: 40px 0;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.explore-menu h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.explore-menu-text {
+    max-width: 700px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-sub);
+    margin-bottom: 30px;
+}
+
+/* =========================
+   HORIZONTAL MENU LIST
+========================= */
+
+.explore-menu-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 36px;
+    overflow-x: auto;
+    padding: 16px 4px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.explore-menu-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for clean visual alignment */
+}
+
+/* =========================
+   MENU ITEM AND AVATARS
+========================= */
+
+.explore-menu-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    min-width: 100px;
+    transition: var(--transition);
+}
+
+.explore-menu-list-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: var(--transition);
+    padding: 4px;
+    background: transparent;
+    border: 3px solid transparent;
+}
+
+/* Elegant float upward translation on hover */
+.explore-menu-list-item:hover img {
+    transform: translateY(-6px);
+}
+
+/* 🎯 CRITICAL FIX: Glowing Dual-Ring Selected State */
+.explore-menu-list-item img.active {
+    border-color: var(--primary);
+    background-color: white;
+    box-shadow: 0 8px 24px rgba(255, 76, 36, 0.25);
+    transform: scale(1.08) translateY(-4px);
+}
+
+.explore-menu-list-item p {
+    margin-top: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-sub);
+    transition: var(--transition);
+}
+
+.explore-menu-list-item:hover p,
+.explore-menu-list-item img.active + p {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* =========================
+   HORIZONTAL BREAK
+========================= */
+
+.explore-menu hr {
+    margin-top: 36px;
+    border: none;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 992px) {
+    .explore-menu h1 {
+        font-size: 28px;
+    }
+
+    .explore-menu-text {
+        font-size: 15px;
+    }
+
+    .explore-menu-list-item img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .explore-menu {
+        padding: 30px 0;
+    }
+
+    .explore-menu h1 {
+        font-size: 24px;
+    }
+
+    .explore-menu-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .explore-menu-list {
+        gap: 24px;
+    }
+
+    .explore-menu-list-item img {
+        width: 72px;
+        height: 72px;
+    }
+
+    .explore-menu-list-item p {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .explore-menu-list {
+        gap: 18px;
+    }
+
+    .explore-menu-list-item img {
+        width: 64px;
+        height: 64px;
+        border-width: 2px;
+    }
+}
