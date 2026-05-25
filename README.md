@@ -2,15 +2,6 @@
 
 Tomato is a modern, fully functional full-stack food ordering website. It offers a seamless, highly interactive web interface for food lovers to browse menus, manage their carts in real time, and process simulated secure online checkout systems, backed by an autonomous administrative dashboard framework.
 
----
-
-## 🌐 Live Experience & Demo
-
-Experience the live deployment of the platform across different administrative layers:
-
-* **🛒 Live Customer Storefront:** [Launch Client App](https://YOUR-FRONTEND-DEPLOYMENT-LINK.vercel.app) *(Explore the menu, add items to your cart, and test checkout paths)*
-* **⚙️ Live Admin Portal:** [Launch Admin Dashboard](https://YOUR-ADMIN-DEPLOYMENT-LINK.vercel.app) *(Manage the database, add new dishes, and process live incoming order metrics)*
-
 ### 📱 Preview & Responsiveness
 The interface is engineered with a mobile-first philosophy to ensure fluid screen transitions across all devices.
 
